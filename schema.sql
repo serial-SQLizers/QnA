@@ -28,7 +28,6 @@ TABLESPACE pg_default;
 ALTER TABLE public.product
     OWNER to postgres;
 
-
 -- Table: public.questions
 
 -- DROP TABLE public.questions;
@@ -48,11 +47,15 @@ CREATE TABLE public.questions
         ON DELETE NO ACTION
 )
 
+CREATE INDEX q_index
+    ON public.questions USING btree
+    (q_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
 TABLESPACE pg_default;
 
 ALTER TABLE public.questions
     OWNER to postgres;
-
 -- Index: fki_refrence_to_product_id
 
 -- DROP INDEX public.fki_refrence_to_product_id;
@@ -62,6 +65,10 @@ CREATE INDEX fki_refrence_to_product_id
     (product_id ASC NULLS LAST)
     TABLESPACE pg_default;
 
+
+-- Table: public.answers
+
+-- DROP TABLE public.answers;
 
 -- Table: public.answers
 
@@ -88,28 +95,17 @@ CREATE TABLE public.answers
         ON DELETE NO ACTION
 )
 
+CREATE INDEX a_index
+    ON public.answers USING btree
+    (a_id ASC NULLS LAST)
+    TABLESPACE pg_default;
+
 TABLESPACE pg_default;
 
 ALTER TABLE public.answers
     OWNER to postgres;
 
--- Index: fki_answer_connect_photo
 
--- DROP INDEX public.fki_answer_connect_photo;
-
-CREATE INDEX fki_answer_connect_photo
-    ON public.answers USING btree
-    (photo_id ASC NULLS LAST)
-    TABLESPACE pg_default;
-
--- Index: fki_answer_connect_question
-
--- DROP INDEX public.fki_answer_connect_question;
-
-CREATE INDEX fki_answer_connect_question
-    ON public.answers USING btree
-    (question_id ASC NULLS LAST)
-    TABLESPACE pg_default;
 
 -- Table: public.photos
 
@@ -119,10 +115,23 @@ CREATE TABLE public.photos
 (
     id integer NOT NULL,
     url text COLLATE pg_catalog."default",
-    CONSTRAINT photos_pkey PRIMARY KEY (id)
+    answer_id integer,
+    CONSTRAINT photos_pkey PRIMARY KEY (id),
+    CONSTRAINT answer_id FOREIGN KEY (id)
+        REFERENCES public.answers (a_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 )
 
 TABLESPACE pg_default;
 
 ALTER TABLE public.photos
     OWNER to postgres;
+-- Index: fki_answer_id
+
+-- DROP INDEX public.fki_answer_id;
+
+CREATE INDEX fki_answer_id
+    ON public.photos USING btree
+    (answer_id ASC NULLS LAST)
+    TABLESPACE pg_default;

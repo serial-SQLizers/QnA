@@ -1,0 +1,30 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 30
+      arrivalRate: 6
+      name: "warm-up"
+    - duration: 10
+      arrivalRate: 15
+      name: "warm-up"
+    - duration: 30
+      arrivalRate: 5
+      name: "warm-up"
+    - duration: 5
+      arrivalRate: 20
+      name: "warm-up"
+    - duration: 20
+      arrivalRate: 3
+      name: "warm-up"
+  processor: './artilleryFun.js'
+scenarios:
+  - flow:
+    - get:
+        url: "/"
+    - get:
+        url: "/bundle.js"
+    - loop:
+      - function: "setId"
+      - get:
+          url: "/qa"
+      count: 90

@@ -102,3 +102,16 @@ dist
 
 # TernJS port file
 .tern-port
+
+# all csv data
+photos.csv
+answers.csv
+products.csv
+questions.csv
+*.csv
+
+dataStore
+
+# key-pair
+
+sdc_key_pair.pem
