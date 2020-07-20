@@ -115,3 +115,7 @@ dataStore
 # key-pair
 
 sdc_key_pair.pem
+
+# password for db instance maze.cvvulkhbsq0t.us-east-2.rds.amazonaws.com
+
+*.pem

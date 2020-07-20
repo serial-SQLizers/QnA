@@ -46,11 +46,6 @@ const getAnswerForQuestion = (req, res) => {
   });
 };
 
-
-
-
-
-
 const postQuestion = (req, res) => {
   const { q_id } = req.query;
   models.postQuestion(q_id, (error, result) => {
