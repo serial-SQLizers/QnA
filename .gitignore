@@ -119,3 +119,11 @@ sdc_key_pair.pem
 # password for db instance maze.cvvulkhbsq0t.us-east-2.rds.amazonaws.com
 
 *.pem
+
+
+ssh -i "sdc_key_pair.pem" bitnami@ec2-3-21-126-12.us-east-2.compute.amazonaws.com
+
+
+'THlA9iuK1XXl'
+
+THlA9iuK1XXl

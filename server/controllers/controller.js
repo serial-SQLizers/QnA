@@ -2,11 +2,11 @@ const models = require('../models/models.js');
 
 const controlTest = (req, res) => {
   // console.log(req.query);
-  // console.log(req.params);
+  console.log(req.params);
   const { id } = req.params;
   models.testGet(id, (error, result) => {
     if (error) {
-      console.log('testGetRequest Failed to get any data', error);
+      console.log('testGetRequest controller failed', error);
     } else {
       console.log('testGetSucceded');
       res.json({
