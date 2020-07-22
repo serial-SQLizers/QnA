@@ -6,13 +6,13 @@ config:
       name: "warm-up"
     - duration: 10
       arrivalRate: 15
-      name: "warm-up"
+      name: "warm-up2"
     - duration: 30
       arrivalRate: 5
-      name: "warm-up"
-    - duration: 5
-      arrivalRate: 20
-      name: "warm-up"
+      name: "speed"
+    - duration: 10
+      arrivalRate: 18
+      name: "burst"
     - duration: 20
       arrivalRate: 3
       name: "warm-up"
@@ -26,5 +26,5 @@ scenarios:
     - loop:
       - function: "setId"
       - get:
-          url: "/qa"
+          url: "/qa/{{ id }}"
       count: 90

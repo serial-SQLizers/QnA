@@ -4,7 +4,7 @@ const pool = new Pool({
   host: 'localhost',
   user: 'postgres',
   port: 5432,
-  password: 'password',
+  password: 'password2',
   database: 'maze',
   max: 20,
   idleTimeoutMillis: 30000,

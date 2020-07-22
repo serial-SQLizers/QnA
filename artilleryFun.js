@@ -5,4 +5,4 @@ function setId (context, events, done) {
 
 module.exports = {
   setId,
-}
+};

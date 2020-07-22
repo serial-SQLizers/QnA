@@ -15,19 +15,20 @@ const db = require('../database/dbConnection.js');
 //     // })
 //     // .then('SELECT * FROM public.answers WHERE a_id=$1')
 // };
-/* WORKING
+
 const testGet = (query, callback) => {
   const queryString = 'SELECT * FROM product JOIN questions ON product.id = questions.product_id JOIN answers ON questions.q_id = answers.question_id JOIN photos ON answers.a_id = photos.answer_id WHERE answers.a_id = $1';
   // return db.query(queryString, [query])
   db.query(queryString, [query], (error, results) => {
     if (error) {
+      console.log(error.message);
       callback('modles testGet failed', error);
     } else {
       callback(null, results);
     }
   });
 };
-*/
+
 const getProductQuestions = (query, callback) => {
   // const queryString = 'SELECT id, url FROM public.photos;';
   const queryString = 'SELECT * FROM product JOIN questions ON product.id = questions.product_id JOIN answers ON questions.q_id = answers.question_id JOIN photos ON answers.a_id = photos.answer_id WHERE answers.a_id = $1';
@@ -181,7 +182,7 @@ const updateReportedAnswer = (query, callback) => {
 };
 
 module.exports = {
-  // testGet,
+  testGet,
   getProductQuestions,
   getAnswerForQuestion,
   postQuestion,
