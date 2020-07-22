@@ -23,7 +23,7 @@ const getProductQuestions = (req, res) => {
     if (error) {
       console.log('testGetRequest Failed to get any data', error);
     } else {
-      console.log('testGetSucceded');
+      console.log('testGetProductQuestionsSucceded');
       res.json({
         result,
       });

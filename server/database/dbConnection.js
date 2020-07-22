@@ -1,17 +1,19 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  host: 'localhost',
+  host: 'ec2-13-59-6-200.us-east-2.compute.amazonaws.com',
   user: 'postgres',
   port: 5432,
-  password: 'password2',
-  database: 'maze',
+  password: 'password',
+  database: 'postgres',
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 30000,
 });
 
-// pool.connect();
+pool.connect()
+  .then(() => console.log('connected to a database'))
+  .catch((err) => console.log(err));
 
 // pool.connect((err, client, release) => {
 //   if (err) {
