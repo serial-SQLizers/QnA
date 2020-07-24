@@ -31,7 +31,7 @@ const testGet = (query, callback) => {
 
 const getProductQuestions = (query, callback) => {
   // const queryString = 'SELECT id, url FROM public.photos;';
-  const queryString = 'SELECT * FROM questions WHERE questions.q_id = $1';
+  const queryString = 'SELECT * FROM questions WHERE product_id = $1';
   db.query(queryString, [query], (error, results) => {
     if (error) {
       callback('modles get question failed', error);
