@@ -1,20 +1,20 @@
 const models = require('../models/models.js');
 
-const controlTest = (req, res) => {
-  console.log(req.query);
-  console.log(req.params);
-  const { id } = req.query;
-  models.testGet(id, (error, result) => {
-    if (error) {
-      console.log('testGetRequest controller failed', error);
-    } else {
-      console.log('testGetSucceded');
-      res.json({
-        result,
-      });
-    }
-  });
-};
+// const controlTest = (req, res) => {
+//   console.log(req.query);
+//   console.log(req.params);
+//   const { id } = req.query;
+//   models.testGet(id, (error, result) => {
+//     if (error) {
+//       console.log('testGetRequest controller failed', error);
+//     } else {
+//       console.log('testGetSucceded');
+//       res.json({
+//         result,
+//       });
+//     }
+//   });
+// };
 
 const getProductQuestions = (req, res) => {
   console.log(req.query);
@@ -135,7 +135,7 @@ const updateReportedAnswer = (req, res) => {
 };
 
 module.exports = {
-  controlTest,
+  // controlTest,
   getProductQuestions,
   getAnswerForQuestion,
   postQuestion,
